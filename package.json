@@ -1,0 +1,44 @@
+{
+  "name": "codex-clone",
+  "displayName": "Codex Clone",
+  "description": "A clean VS Code chat interface for a Codex-powered coding agent.",
+  "version": "0.0.1",
+  "publisher": "inukaminsara",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:codexClone.openChat"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codexClone.openChat",
+        "title": "Codex Clone: Open Chat"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "codexClone.openChat"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile",
+    "package": "npm run compile && npx @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.5.0",
+    "@vscode/vsce": "^3.2.1"
+  }
+}
