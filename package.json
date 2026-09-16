@@ -1,24 +1,30 @@
 {
   "name": "codex-clone",
   "displayName": "Codex Clone",
-  "description": "A clean VS Code chat interface for a Codex-powered coding agent.",
-  "version": "0.0.2",
+  "description": "A clean VS Code coding chat powered by xKiro's OpenAI GPT-5.3-Codex-Spark model.",
+  "version": "0.0.4",
   "publisher": "inukaminsara",
   "engines": {
     "vscode": "^1.90.0"
   },
   "categories": ["Other"],
-  "activationEvents": ["onCommand:codexClone.openChat", "onCommand:codexClone.setApiKey"],
+  "activationEvents": [
+    "onCommand:codexClone.openChat",
+    "onCommand:codexClone.setApiKey",
+    "onCommand:codexClone.clearApiKey"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       { "command": "codexClone.openChat", "title": "Codex Clone: Open Chat" },
-      { "command": "codexClone.setApiKey", "title": "Codex Clone: Set OpenAI API Key" }
+      { "command": "codexClone.setApiKey", "title": "Codex Clone: Set xKiro API Key" },
+      { "command": "codexClone.clearApiKey", "title": "Codex Clone: Clear xKiro API Key" }
     ],
     "menus": {
       "commandPalette": [
         { "command": "codexClone.openChat" },
-        { "command": "codexClone.setApiKey" }
+        { "command": "codexClone.setApiKey" },
+        { "command": "codexClone.clearApiKey" }
       ]
     },
     "configuration": {
@@ -26,14 +32,14 @@
       "properties": {
         "codexClone.model": {
           "type": "string",
-          "default": "gpt-5.3-codex",
-          "description": "OpenAI model used by the Codex Clone chat."
+          "default": "openai/gpt-5.3-codex-spark",
+          "description": "xKiro model ID used by Codex Clone."
         },
         "codexClone.reasoningEffort": {
           "type": "string",
           "enum": ["low", "medium", "high", "xhigh"],
           "default": "medium",
-          "description": "Reasoning effort for GPT-5.3-Codex."
+          "description": "Reasoning effort sent to xKiro."
         }
       }
     }
