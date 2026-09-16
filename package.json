@@ -2,31 +2,40 @@
   "name": "codex-clone",
   "displayName": "Codex Clone",
   "description": "A clean VS Code chat interface for a Codex-powered coding agent.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "inukaminsara",
   "engines": {
     "vscode": "^1.90.0"
   },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:codexClone.openChat"
-  ],
+  "categories": ["Other"],
+  "activationEvents": ["onCommand:codexClone.openChat", "onCommand:codexClone.setApiKey"],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      {
-        "command": "codexClone.openChat",
-        "title": "Codex Clone: Open Chat"
-      }
+      { "command": "codexClone.openChat", "title": "Codex Clone: Open Chat" },
+      { "command": "codexClone.setApiKey", "title": "Codex Clone: Set OpenAI API Key" }
     ],
     "menus": {
       "commandPalette": [
-        {
-          "command": "codexClone.openChat"
-        }
+        { "command": "codexClone.openChat" },
+        { "command": "codexClone.setApiKey" }
       ]
+    },
+    "configuration": {
+      "title": "Codex Clone",
+      "properties": {
+        "codexClone.model": {
+          "type": "string",
+          "default": "gpt-5.3-codex",
+          "description": "OpenAI model used by the Codex Clone chat."
+        },
+        "codexClone.reasoningEffort": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "xhigh"],
+          "default": "medium",
+          "description": "Reasoning effort for GPT-5.3-Codex."
+        }
+      }
     }
   },
   "scripts": {
