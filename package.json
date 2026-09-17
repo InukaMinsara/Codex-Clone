@@ -1,8 +1,8 @@
 {
   "name": "codex-clone",
   "displayName": "Codex Clone",
-  "description": "A clean VS Code coding chat powered by xKiro's OpenAI GPT-5.3-Codex-Spark model.",
-  "version": "0.0.5",
+  "description": "A VS Code coding chat powered by xKiro's OpenAI GPT-5.3-Codex-Spark model.",
+  "version": "0.0.6",
   "publisher": "inukaminsara",
   "engines": {
     "vscode": "^1.90.0"
@@ -14,7 +14,7 @@
     "onCommand:codexClone.clearApiKey",
     "onCommand:codexClone.checkConnection"
   ],
-  "main": "./out/extension.js",
+  "main": "./out/extensionV2.js",
   "contributes": {
     "commands": [
       { "command": "codexClone.openChat", "title": "Codex Clone: Open Chat" },
@@ -45,8 +45,7 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "vscode:prepublish": "npm run compile",
-    "package": "npm run package:build",
-    "package:build": "npm run compile && npx @vscode/vsce package"
+    "package": "npm run compile && npx @vscode/vsce package"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
