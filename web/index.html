@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codex Clone</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="logo">C</div><span>Codex Clone</span></div>
+      <button id="newChat" class="new-chat">＋ New chat</button>
+      <div class="label">Workspace</div>
+      <div class="nav active">⌂ <span>Current project</span></div>
+      <div class="nav">◫ <span>Files</span></div>
+      <div class="nav">◌ <span>Activity</span></div>
+      <div class="label">Model</div>
+      <div class="model-card">
+        <div class="model-name">GPT-5.3-Codex-Spark</div>
+        <div class="model-sub">via xKiro</div>
+      </div>
+      <div class="sidebar-bottom">
+        <div id="connection" class="connection"><span class="dot"></span>Ready</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><strong>Chat</strong><span class="pill">Agent</span></div>
+        <span class="top-model">xKiro · Codex Spark</span>
+      </header>
+
+      <section class="content" id="content">
+        <div class="inner">
+          <div id="welcome" class="welcome">
+            <div class="mark">C</div>
+            <h1>What are we building?</h1>
+            <p>Ask your coding agent to understand, plan, or build.</p>
+          </div>
+
+          <div id="messages" class="messages"></div>
+
+          <div id="suggestions" class="suggestions">
+            <button data-prompt="Explain what a coding agent does."><b>Explore</b><span>Ask a coding question</span></button>
+            <button data-prompt="Give me a simple plan for building a VS Code extension."><b>Plan</b><span>Turn an idea into steps</span></button>
+            <button data-prompt="Write a small TypeScript example."><b>Create</b><span>Generate code</span></button>
+          </div>
+        </div>
+      </section>
+
+      <div class="composer-wrap">
+        <form id="form" class="composer">
+          <div class="composer-box">
+            <textarea id="input" rows="1" placeholder="Ask Codex something..."></textarea>
+            <button id="send" class="send" type="submit">↑</button>
+          </div>
+          <div class="meta">Enter to send · Shift + Enter for a new line</div>
+        </form>
+      </div>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
