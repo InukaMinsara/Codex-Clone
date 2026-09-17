@@ -1,35 +1,44 @@
 # Codex Clone
 
-A clean VS Code extension interface for a Codex-powered coding agent.
+A small Codex-style coding chat project with two targets:
 
-## Current status
+- **VS Code extension** — a chat UI powered by xKiro.
+- **Web app** — the same simple chat experience in a browser, using a local server as the secure xKiro proxy.
 
-The repository currently contains the VS Code extension base, a polished chat interface, workspace-aware UI, agent activity panel, suggestions, and a ready-to-use Extension Development Host launch configuration.
+The current model is `openai/gpt-5.3-codex-spark` through xKiro.
 
-The Codex model/agent layer is intentionally separate and will be connected next.
-
-## Run locally
+## VS Code extension
 
 ```bash
 npm install
 npm run compile
 ```
 
-Open this folder in VS Code and press **F5**. The included `.vscode/launch.json` launches the Extension Development Host automatically.
-
-Then open the Command Palette and run:
-
-`Codex Clone: Open Chat`
+Open this repository in VS Code and press **F5** to launch the Extension Development Host. Then run `Codex Clone: Open Chat` from the Command Palette.
 
 Do not run `node out/extension.js` directly. VS Code extensions must run inside the VS Code Extension Host because the `vscode` API is provided by VS Code.
 
-## Package as VSIX
+## Web app
+
+1. Copy `.env.example` to `.env`.
+2. Put your xKiro key in `.env` as `XKIRO_API_KEY`.
+3. Start the local server:
+
+```bash
+npm run web
+```
+
+4. Open `http://localhost:8787`.
+
+The browser never receives the xKiro API key. The local server sends requests to xKiro's OpenAI-compatible `/v1/chat/completions` endpoint.
+
+## Package the extension
 
 ```bash
 npm run package
 ```
 
-This creates a `.vsix` file in the project root.
+This creates a `.vsix` file in the repository root.
 
 ## Clone on another laptop
 
@@ -40,4 +49,4 @@ npm install
 npm run compile
 ```
 
-Then open the folder in VS Code and press **F5**.
+For the website, create a local `.env` from `.env.example`, then run `npm run web`.
