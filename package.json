@@ -2,7 +2,7 @@
   "name": "codex-clone",
   "displayName": "Codex Clone",
   "description": "A VS Code coding chat powered by xKiro's OpenAI GPT-5.3-Codex-Spark model.",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "publisher": "inukaminsara",
   "engines": {
     "vscode": "^1.90.0"
@@ -45,7 +45,8 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "vscode:prepublish": "npm run compile",
-    "package": "npm run compile && npx @vscode/vsce package"
+    "package": "npm run compile && npx @vscode/vsce package",
+    "web": "node web-server.js"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
